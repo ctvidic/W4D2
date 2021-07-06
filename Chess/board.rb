@@ -5,8 +5,8 @@ class Board
     attr_reader :rows
     def initialize
         newArr = [0,1,7,6]
-        @rows = Array.new(8){Array.new(8)}
-        @rows.each_with_index do |row,i|
+        @grid = Array.new(8){Array.new(8)}
+        @grid.each_with_index do |row,i|
             if newArr.include?(i)
                row.map!{|val| val = "x"}
             else
@@ -17,12 +17,12 @@ class Board
 
     def [](pos)
         row,col = pos
-        @rows[row][col]
+        @grid[row][col]
     end
 
     def []=(pos,val)
         row,col = pos
-        @rows[row][col] = val
+        @grid[row][col] = val
     end
 
     def move_piece(start_pos, end_pos)
@@ -33,6 +33,7 @@ class Board
         else
             piece = self[start_pos]
             self[end_pos] = piece
+            self[start_pos] = nil
         end
     end
 end
