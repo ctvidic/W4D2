@@ -58,8 +58,8 @@ module Slideable
     def moves
         possible_moves = []
         @board.length.times do 
-            self.move_dirs.each do |dirs|
-                new_pos = @pos += dirs
+            self.move_dirs.each do |dx, dy|
+                new_pos = [@pos.first + dx, @pos.last + dy]
                 possible_moves << new_pos if new_pos.each {|coord| coord.between(0, 7)}
             end
         end
