@@ -1,5 +1,5 @@
 class Employee
-      attr_reader :name, :title, :salary, :boss
+      attr_reader :name, :title, :salary, :boss #:employees
 
       def initialize(name, title, salary, boss)
         @name = name
@@ -26,4 +26,13 @@ class Manager < Employee
         end
         sum * multiplier
     end
+
+    def add_employee(employee)
+        @employees << employee
+    end
 end
+
+#ned = Manager.new("Ned", "Founder", 1000000, nil)
+#darren = Manager.new("Darren", "TA Manager", 78000, "Ned")
+#bob = Employee.new("Bob", "Plumber", 30000, "Jim")
+#jim = Manager.new("Jim", "Plumber", 50000, nil)
