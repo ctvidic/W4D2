@@ -10,32 +10,29 @@ class Piece
     end
 
     def to_s 
-        return "P" if self.symbol == :Pawn
-        return "Q" if self.symbol == :Queen
-        return "K" if self.symbol == :King
-        return "R" if self.symbol == :Rook
-        return "B" if self.symbol == :Bishop
-        return "Kn" if self.symbol == :Knight
-        return " " if self.symbol == :Null
+        return '♙' if self.symbol == '♙'
+        return '♛' if self.symbol == '♛'
+        return '♚' if self.symbol == '♚'
+        return '♜' if self.symbol == '♜'
+        return '♝' if self.symbol == '♝'
+        return '♞' if self.symbol == '♞'
+        return "_" if self.symbol == "_"
     end
 
     def empty?
-        self.symbol == :Null ? true : false
+        self.symbol == "_" ? true : false
     end
 
     def valid_moves
         
     end
 
-    def pos=(val)
-
-    end
+    # def pos=(val)
+    #     @board[][] = val 
+    # end
 
     
 end
 
 
 
-module Stepable
-
-end

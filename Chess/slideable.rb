@@ -40,11 +40,11 @@ module Slideable
         new_pos = pos
         @board.length.times do 
             new_pos = [new_pos.first + dx, new_pos.last + dy]
-            if @board[new_pos] == Null_Piece.instance
-                possible_moves << new_pos if new_pos.each {|coord| coord.between(0, 7)}
-            elsif @board[new_pos] == Piece.instance && @board[new_pos] != Null_Piece.instance
+            if @board[new_pos] == NullPiece.instance
+                possible_moves << new_pos if new_pos.each {|coord| coord.between?(0, 7)}
+            elsif @board[new_pos] == Piece.instance && @board[new_pos] != NullPiece.instance
                 if @board[new_pos].color != self.color
-                    possible_moves << new_pos if new_pos.each {|coord| coord.between(0, 7)}
+                    possible_moves << new_pos if new_pos.each {|coord| coord.between?(0, 7)}
                     break
                 else
                     break
