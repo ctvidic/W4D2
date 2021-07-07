@@ -1,4 +1,7 @@
+
+
 class Piece
+    attr_accessor :pos
 
     def initialize(color, board, pos)
         @color = color
@@ -32,57 +35,6 @@ class Piece
 end
 
 
-module Slideable
-    HORIZONTAL_DIRS = [
-        [0, 1]
-        [0, -1]
-        [1, 0]
-        [-1, 0]
-    ]
-
-    DIAGONAL_DIRS = [
-        [1, 1]
-        [1, -1]
-        [-1, 1]
-        [-1, -1]
-    ]
-
-    def horizontal_dirs
-        HORIZONTAL_DIRS 
-    end
-
-    def diagonal_dirs
-        DIAGONAL_DIRS
-    end
-
-    def moves
-        possible_moves = []
-        @board.length.times do 
-            self.move_dirs.each do |dx, dy|
-                new_pos = [@pos.first + dx, @pos.last + dy]
-                possible_moves << new_pos if new_pos.each {|coord| coord.between(0, 7)}
-            end
-        end
-        possible_moves
-    end
-
-    private
-
-    def move_dirs
-        case self.symbol
-        when :Queen
-            horizontal_dirs + diagonal_dirs
-        when :Bishop
-            diagonal_dirs
-        when :Rook
-            horizontal_dirs
-        end
-    end
-
-    def grow_unblocked_moves_in_dir(dx, dy)
-        
-    end
-end
 
 module Stepable
 

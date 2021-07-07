@@ -38,7 +38,7 @@ class Board
     end
 end
 
-b=Board.new
-b.move_piece([1,1],[2,2])
+# b=Board.new
+# b.move_piece([1,1],[2,2])
 # @rows[start_pos[0]][start_pos[1]
 # !@rows[end_pos[0]][end_pos[1]]
