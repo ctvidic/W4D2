@@ -19,6 +19,16 @@ class Piece
         return "_" if self.symbol == "_"
     end
 
+    # def []=(pos,val)
+    #     row,col = pos
+    #     @grid[row][col] = val
+    # end
+
+    def [](pos)
+        row,col = pos
+        @board[row][col]
+    end
+
     def empty?
         self.symbol == "_" ? true : false
     end
